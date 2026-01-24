@@ -1,0 +1,67 @@
+@import url(var.css);
+
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: inherit;
+}
+
+#root {
+    min-height: 100%;
+	width: 100vw;
+}
+
+.container {
+    min-height: 100vh;
+	width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 4rem 14px;
+    width: 100%;
+}
+
+.delimiter {
+	height: 100%;
+    padding: 0px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 768px) {
+}
+
+
+body {
+	height: 100%;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+}
+
+html {
+	height: 100%;
+	scroll-behavior: smooth;
+    scroll-padding-top: 75px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
