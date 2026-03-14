@@ -1,4 +1,5 @@
-import type { UserStatus, Role } from "../../../../core";
+import { Role } from "../../../const/Role";
+import { UserStatus } from "../../../const/UserStatus";
 
 export interface AuthRes {
     id: string;

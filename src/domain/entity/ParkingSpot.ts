@@ -1,4 +1,4 @@
-import { SpotStatus } from '../../core';
+import { SpotStatus } from '../const/SpotStatus';
 import { ParkingSpotType } from './ParkingSpotType';
 
 export class ParkingSpot {
@@ -8,7 +8,9 @@ export class ParkingSpot {
         public type?: ParkingSpotType | null,
     ) {}
 
-    static fromObject(object: { [key: string]: any }): ParkingSpot | null {
+    static fromObject(object: {
+        [key: string]: any;
+    }): ParkingSpot | null {
         if (!object) return null;
         return new ParkingSpot(
             object.id,
@@ -16,5 +18,4 @@ export class ParkingSpot {
             ParkingSpotType.fromObject(object.type),
         );
     }
-
 }

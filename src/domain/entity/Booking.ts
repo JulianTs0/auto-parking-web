@@ -1,4 +1,4 @@
-import { LogStatus } from '../../core';
+import { LogStatus } from '../const/LogStatus';
 import { Vehicle } from './Vehicle';
 import { ParkingSpot } from './ParkingSpot';
 import { Subscription } from './Subscription';
@@ -19,7 +19,9 @@ export class Booking {
         public payment?: Payment | null,
     ) {}
 
-    static fromObject(object: { [key: string]: any }): Booking | null {
+    static fromObject(object: {
+        [key: string]: any;
+    }): Booking | null {
         if (!object) return null;
         return new Booking(
             object.id,
@@ -38,5 +40,4 @@ export class Booking {
             Payment.fromObject(object.payment),
         );
     }
-
 }

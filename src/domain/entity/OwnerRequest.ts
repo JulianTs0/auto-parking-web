@@ -1,5 +1,5 @@
-import { OwnerRequestStatus } from "../../core";
-import { User } from "./User"
+import { OwnerRequestStatus } from '../const/OwnerRequestStatus';
+import { User } from './User';
 
 export class OwnerRequest {
     public id: string;
@@ -23,7 +23,7 @@ export class OwnerRequest {
 
         const request = new OwnerRequest();
         request.id = object.id;
-        request.user = User.fromObject(object.user)!
+        request.user = User.fromObject(object.user)!;
         request.status = object.status;
         request.createdAt = object.createdAt;
         request.updatedAt = object.updatedAt;

@@ -1,5 +1,5 @@
-import type { OwnerRequestStatus } from "../../../../core";
-import type { OwnerRequestUserData } from "./OwnerRequestUserData";
+import { OwnerRequestStatus } from '../../../const/OwnerRequestStatus';
+import type { OwnerRequestUserData } from './OwnerRequestUserData';
 
 export interface OwnerRequestItemRes {
     id: string;

@@ -1,4 +1,4 @@
-import { ShiftStatus } from '../../core';
+import { ShiftStatus } from '../const/ShiftStatus';
 import { User } from './User';
 
 export class Shift {
@@ -22,5 +22,4 @@ export class Shift {
             User.fromObject(object.user),
         );
     }
-
 }
