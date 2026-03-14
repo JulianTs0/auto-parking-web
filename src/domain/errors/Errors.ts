@@ -1,4 +1,15 @@
-export const Errors: Record<string, string> = {
+export class CLientErrors {
+    public static readonly UNKNOWN_ERROR = "Ha ocurrido un error inesperado. Por favor, intentá más tarde.";
+    public static readonly NETWORK_ERROR = 'No se pudo conectar con el servidor.';
+    public static readonly CLIENT_ERROR = 'Error interno del cliente.';
+    public static readonly LOGIN_ERROR_MESSAGE = "No se ha podido iniciar sesión"
+    public static readonly NO_SESSION_SAVED_ERROR = "No hay sesión guardada"
+    public static readonly GET_SESSION_ERROR = "Error obteniendo sesión"
+    public static readonly SAVE_SESSION_ERROR = "Error guardando sesión"
+    public static readonly DELETE_SESSION_ERROR = "Error eliminando sesión"
+}
+
+export const ApiErrors: Record<string, string> = {
     'INTERNAL_ERROR': 'Error interno del servidor.',
     'USER_NOT_ACTIVATED': 'La cuenta de usuario aún no ha sido activada.',
     'USER_NOT_FOUND': 'No pudimos encontrar al usuario solicitado.',
@@ -13,6 +24,6 @@ export const Errors: Record<string, string> = {
     'CLIENT_ALREADY_EXISTS': 'El usuario ya es cliente. Por favor, solicita la mejora a propietario.',
     'OWNER_REQUEST_ALREADY_EXISTS': 'Ya existe una solicitud de propietario pendiente para este usuario.',
     'OWNER_REQUEST_NOT_FOUND': 'La solicitud de propietario no fue encontrada o aún no ha sido aprobada.',
+    'LOGIN_ERROR_MESSAGE': 'No se ha podido iniciar sesión', 
 };
 
-export const UNKNOWN_ERROR_MESSAGE = 'Ha ocurrido un error inesperado. Por favor, intenta más tarde.';

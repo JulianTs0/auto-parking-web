@@ -1,3 +1,4 @@
+import { ErrorHandler } from "../../domain";
 import { env } from "./env";
 import axios from "axios";
 
@@ -33,7 +34,7 @@ export class HTTPClient {
             return response.data;
         }
         catch (error: any) {
-            throw new Error(error.response.data.message);
+            ErrorHandler.handleError(error);
         }
     }
 
@@ -52,7 +53,7 @@ export class HTTPClient {
             return response.data;
         }
         catch (error: any) {
-            throw new Error(error.response.data.message);
+            throw new error(error.response.data.message);
         }
     }
 
@@ -71,7 +72,7 @@ export class HTTPClient {
             return response.data;
         }
         catch (error: any) {
-            throw new Error(error.response.data.message);
+            ErrorHandler.handleError(error);
         }
     }
 
@@ -90,7 +91,7 @@ export class HTTPClient {
             return response.data;
         }
         catch (error: any) {
-            throw new Error(error.response.data.message);
+            ErrorHandler.handleError(error);
         }
     }
 
@@ -109,7 +110,7 @@ export class HTTPClient {
             return response.data;
         }
         catch (error: any) {
-            throw new Error(error.response.data.message);
+            ErrorHandler.handleError(error);
         }
     }
     
