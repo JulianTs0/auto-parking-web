@@ -1,19 +1,16 @@
-import type { Error } from "./Error";
-import { Errors } from "./errors";
+import type { ErrorResponse } from "./ErrorResponse";
+import { Errors, UNKNOWN_ERROR_MESSAGE } from "./Errors"
 
 export class ErrorHandler {
 
-    public static handleError(error: Error): string {
-        switch (error.message) {
-            case "Internal error":
-                return Errors.INTERNAL_ERROR;
-            
-            case "Unknown error":
-                return Errors.UNKNOWN_ERROR;
-              
-            default:
-                return Errors.INTERNAL_ERROR;
+    public static getMessage(error: ErrorResponse): string {
+        if (!error || !error.key) {
+            return UNKNOWN_ERROR_MESSAGE;
         }
+
+        const translatedMessage = Errors[error.key];
+
+        return translatedMessage || UNKNOWN_ERROR_MESSAGE;
     }
 
 }
