@@ -58,9 +58,9 @@ export * from './dto/users/request/GetByIdReq';
 
 export * from './dto/users/response/EditRes';
 export * from './dto/users/response/GetByIdRes';
-export * from './dto/users/response/GetOwnerRequestRes';
-export * from './dto/users/response/OwnerRequestItemRes';
-export * from './dto/users/response/OwnerRequestUserData';
+export * from './dto/auth/response/GetOwnerRequestRes';
+export * from './dto/auth/response/OwnerRequestItemRes';
+export * from './dto/auth/response/OwnerRequestUserData';
 
 export * from './errors/ErrorHandler';
 export * from './errors/Errors';

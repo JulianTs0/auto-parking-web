@@ -1,15 +1,18 @@
-import { CLientErrors, SessionDataSourceI } from "../../domain";
-import { GetSessionRes, SaveSessionReq, Session } from "../../domain";
+import { CLientErrors, SessionDataSourceI } from '../../domain';
+import {
+    type GetSessionRes,
+    type SaveSessionReq,
+    Session,
+} from '../../domain';
 
 export class SessionDataSource implements SessionDataSourceI {
-    private readonly key = "session";
+    private readonly key = 'session';
 
     public async saveSession(dto: SaveSessionReq): Promise<void> {
         try {
             const sessionString = JSON.stringify(dto.session);
-            localStorage.setItem("session", sessionString);
-        }
-        catch (error) {
+            localStorage.setItem('session', sessionString);
+        } catch (error) {
             throw new Error(CLientErrors.SAVE_SESSION_ERROR);
         }
     }
@@ -17,17 +20,16 @@ export class SessionDataSource implements SessionDataSourceI {
     async getSession(): Promise<GetSessionRes> {
         try {
             const session = localStorage.getItem(this.key);
-            const sessionParsed = JSON.parse(session || "");
+            const sessionParsed = JSON.parse(session || '');
 
-            if (!sessionParsed || sessionParsed === "") {
+            if (!sessionParsed || sessionParsed === '') {
                 throw new Error(CLientErrors.NO_SESSION_SAVED_ERROR);
             }
 
             return {
                 session: Session.fromObject(sessionParsed)!,
             };
-        }
-        catch (error) {
+        } catch (error) {
             throw new Error(CLientErrors.GET_SESSION_ERROR);
         }
     }
@@ -35,8 +37,7 @@ export class SessionDataSource implements SessionDataSourceI {
     public async deleteSession(): Promise<void> {
         try {
             localStorage.removeItem(this.key);
-        }
-        catch (error) {
+        } catch (error) {
             throw new Error(CLientErrors.DELETE_SESSION_ERROR);
         }
     }

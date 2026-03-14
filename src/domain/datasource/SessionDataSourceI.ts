@@ -1,5 +1,5 @@
-import type { SaveSessionReq } from "../dto/app/request/SaveSessionReq";
-import { GetSessionRes } from "../dto/app/response/GetSessionRes";
+import type { SaveSessionReq } from '../dto/app/request/SaveSessionReq';
+import type { GetSessionRes } from '../dto/app/response/GetSessionRes';
 
 export abstract class SessionDataSourceI {
     abstract saveSession(dto: SaveSessionReq): Promise<void>;

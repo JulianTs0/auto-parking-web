@@ -1,9 +1,24 @@
-import { AuthDataSourceI, AuthRepositoryI } from "../../domain";
-import type { AcceptOwnerRequestReq, AuthReq, AuthRes, EditPasswordReq, GetOwnerRequestReq, LoginReq, LoginRes, RecoverPasswordReq, RegisterEmployeeReq, RegisterReq, RequestOwnerUpgradeReq, ResendEmailReq, UpgradeToOwnerReq, VerifyEmailReq } from "../../domain";
-import { AuthDataSource } from "../datasource/auth-datasource";
+import { AuthDataSourceI, AuthRepositoryI } from '../../domain';
+import type {
+    AcceptOwnerRequestReq,
+    AuthReq,
+    AuthRes,
+    EditPasswordReq,
+    GetOwnerRequestReq,
+    GetOwnerRequestRes,
+    LoginReq,
+    LoginRes,
+    RecoverPasswordReq,
+    RegisterEmployeeReq,
+    RegisterReq,
+    RequestOwnerUpgradeReq,
+    ResendEmailReq,
+    UpgradeToOwnerReq,
+    VerifyEmailReq,
+} from '../../domain';
+import { AuthDataSource } from '../datasource/auth-datasource';
 
 export class AuthRepository implements AuthRepositoryI {
-
     private dataSource: AuthDataSourceI;
 
     constructor() {
@@ -42,15 +57,21 @@ export class AuthRepository implements AuthRepositoryI {
         return await this.dataSource.registerEmployee(dto);
     }
 
-    async getOwnerRequests(dto: GetOwnerRequestReq): Promise<GetOwnerRequestRes> {
+    async getOwnerRequests(
+        dto: GetOwnerRequestReq,
+    ): Promise<GetOwnerRequestRes> {
         return await this.dataSource.getOwnerRequests(dto);
     }
 
-    async acceptOwnerRequest(dto: AcceptOwnerRequestReq): Promise<void> {
+    async acceptOwnerRequest(
+        dto: AcceptOwnerRequestReq,
+    ): Promise<void> {
         return await this.dataSource.acceptOwnerRequest(dto);
     }
 
-    async requestOwnerUpgrade(dto: RequestOwnerUpgradeReq): Promise<void> {
+    async requestOwnerUpgrade(
+        dto: RequestOwnerUpgradeReq,
+    ): Promise<void> {
         return await this.dataSource.requestOwnerUpgrade(dto);
     }
 
