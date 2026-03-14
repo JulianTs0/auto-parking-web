@@ -1,19 +1,24 @@
 import { UserDataSourceI, UserRepositoryI } from "../../domain";
 import type { DeleteReq, EditReq, EditRes, GetByIdReq, GetByIdRes } from "../../domain";
+import { UserDataSource } from "../datasource/user-datasource";
 
 export class UserRepository implements UserRepositoryI {
-    constructor(private readonly datasource: UserDataSourceI) {}
+    private dataSource: UserDataSourceI;
+
+    constructor() {
+        this.dataSource = new UserDataSource();
+    }
 
     async getById(dto: GetByIdReq): Promise<GetByIdRes> {
-        return await this.datasource.getById(dto);
+        return await this.dataSource.getById(dto);
     }
 
     async edit(dto: EditReq): Promise<EditRes> {
-        return await this.datasource.edit(dto);
+        return await this.dataSource.edit(dto);
     }
 
     async delete(dto: DeleteReq): Promise<void> {
-        return await this.datasource.delete(dto);
+        return await this.dataSource.delete(dto);
     }
 
 }

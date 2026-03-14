@@ -1,5 +1,5 @@
 import { AuthDataSourceI, AuthRepositoryI } from "../../domain";
-import type { AcceptOwnerRequestReq, AuthReq, AuthRes, EditPasswordReq, GetOwnerRequestReq, LoginReq, LoginRes, RecoverPasswordReq, RegisterEmployeeReq, RegisterReq, RequestOwnerUpgradeReq, ResendEmailReq, UpgradeToOwnerReq, VerifyEmailReq, GetOwnerRequestRes } from "../../domain";
+import type { AcceptOwnerRequestReq, AuthReq, AuthRes, EditPasswordReq, GetOwnerRequestReq, LoginReq, LoginRes, RecoverPasswordReq, RegisterEmployeeReq, RegisterReq, RequestOwnerUpgradeReq, ResendEmailReq, UpgradeToOwnerReq, VerifyEmailReq } from "../../domain";
 import { AuthDataSource } from "../datasource/auth-datasource";
 
 export class AuthRepository implements AuthRepositoryI {
