@@ -1,5 +1,4 @@
-import { Role } from '../../core/const/Role';
-import { UserStatus } from '../../core/const/UserStatus';
+import { Role, UserStatus } from '../../core';
 import { Subscription } from './Subscription';
 import { Vehicle } from './Vehicle';
 import { PaymentMethod } from './PaymentMethod';

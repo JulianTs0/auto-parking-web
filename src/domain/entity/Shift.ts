@@ -1,4 +1,4 @@
-import { ShiftStatus } from '../../core/const/ShiftStatus';
+import { ShiftStatus } from '../../core';
 import { User } from './User';
 
 export class Shift {

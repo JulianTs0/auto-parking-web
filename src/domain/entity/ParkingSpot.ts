@@ -1,4 +1,4 @@
-import { SpotStatus } from '../../core/const/SpotStatus';
+import { SpotStatus } from '../../core';
 import { ParkingSpotType } from './ParkingSpotType';
 
 export class ParkingSpot {

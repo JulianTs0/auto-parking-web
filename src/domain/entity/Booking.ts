@@ -1,4 +1,4 @@
-import { LogStatus } from '../../core/const/LogStatus';
+import { LogStatus } from '../../core';
 import { Vehicle } from './Vehicle';
 import { ParkingSpot } from './ParkingSpot';
 import { Subscription } from './Subscription';

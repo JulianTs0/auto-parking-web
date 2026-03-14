@@ -1,4 +1,4 @@
-import { PaymentType } from '../../core/const/PaymentType';
+import { PaymentType } from '../../core';
 import { Shift } from './Shift';
 import { PaymentMethod } from './PaymentMethod';
 

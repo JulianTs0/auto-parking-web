@@ -1,4 +1,4 @@
-import { SubscriptionStatus } from '../../core/const/SubscriptionStatus';
+import { SubscriptionStatus } from '../../core';
 import { MembershipPlan } from './MembershipPlan';
 
 export class Subscription {

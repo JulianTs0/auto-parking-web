@@ -1,4 +1,4 @@
-import { LogStatus } from '../../core/const/LogStatus';
+import { LogStatus } from '../../core';
 
 export class StatusLog {
     public constructor(
