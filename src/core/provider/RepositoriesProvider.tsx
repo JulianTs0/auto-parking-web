@@ -1,40 +1,48 @@
-import type { ReactNode } from "react";
-import { createContext, useContext, useMemo } from "react";
-import { } from "../../infrastructure";
+import type { ReactNode } from 'react';
+import { createContext, useContext, useMemo } from 'react';
+import {
+    AuthRepository,
+    SessionRepository,
+    UserRepository,
+} from '../../infrastructure';
+import { CLientErrors } from '../../domain';
 
 interface RepositoriesProviderProps {
     children: ReactNode;
 }
 
 interface RepositoriesContextType {
-    // repo: Repo
+    authRepository: AuthRepository;
+    sessionRepository: SessionRepository;
+    userRepository: UserRepository;
 }
 
-// dependecy context
-const RepositoriesContext = createContext<RepositoriesContextType | null>(null);
+const RepositoriesContext =
+    createContext<RepositoriesContextType | null>(null);
 
-export const RepositoriesProvider = (
-    { children }: RepositoriesProviderProps
-) => {
+export const RepositoriesProvider = ({
+    children,
+}: RepositoriesProviderProps) => {
+    const repositories = useMemo(
+        () => ({
+            authRepository: new AuthRepository(),
+            sessionRepository: new SessionRepository(),
+            userRepository: new UserRepository(),
+        }),
+        [],
+    );
 
-    const repositories = useMemo(() => ({
-        // repo: new Repo()
-    }), []);
-
-    // dependecy injection
     return (
         <RepositoriesContext.Provider value={repositories}>
             {children}
         </RepositoriesContext.Provider>
     );
-
 };
 
 export const useRepositories = () => {
-
     const context = useContext(RepositoriesContext);
 
-    if (!context) throw new Error("context error");
+    if (!context) throw new Error(CLientErrors.CLIENT_ERROR);
 
     return context;
 };
