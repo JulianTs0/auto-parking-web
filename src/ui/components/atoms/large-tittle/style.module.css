@@ -1,0 +1,9 @@
+.container {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 3px;
+    border-bottom: 2px solid var(--on-primary);
+    padding-bottom: 4px;
+    display: inline-block;
+}
