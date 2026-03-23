@@ -1,6 +1,6 @@
-import { ErrorHandler } from "../../domain";
-import { env } from "./env";
-import axios from "axios";
+import { ErrorHandler } from '../../domain';
+import { env } from './env';
+import axios from 'axios';
 
 export class HTTPClient {
     private readonly baseURL: string;
@@ -14,26 +14,24 @@ export class HTTPClient {
             let finalUrl = `${this.baseURL}${url}`;
             let queryParams = undefined;
 
-            if (typeof params === "string") {
+            if (typeof params === 'string') {
                 finalUrl += `/${params}`;
-            } 
-            else if (typeof params === "object" && params !== null) {
+            } else if (
+                typeof params === 'object' &&
+                params !== null
+            ) {
                 queryParams = params;
             }
 
-            const response = await axios.get(
-                finalUrl, 
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    },
-                    params: queryParams
-                }
-            );
+            const response = await axios.get(finalUrl, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                params: queryParams,
+            });
 
             return response.data;
-        }
-        catch (error: any) {
+        } catch (error: any) {
             ErrorHandler.handleError(error);
         }
     }
@@ -41,37 +39,35 @@ export class HTTPClient {
     public async post(url: string, body?: any, token?: string) {
         try {
             const response = await axios.post(
-                this.baseURL + url, 
-                body, 
+                this.baseURL + url,
+                body,
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                }
+                        Authorization: `Bearer ${token}`,
+                    },
+                },
             );
 
             return response.data;
-        }
-        catch (error: any) {
-            throw new error(error.response.data.message);
+        } catch (error: any) {
+            ErrorHandler.handleError(error);
         }
     }
 
     public async put(url: string, body?: any, token?: string) {
         try {
             const response = await axios.put(
-                this.baseURL + url, 
-                body, 
+                this.baseURL + url,
+                body,
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`
+                        Authorization: `Bearer ${token}`,
                     },
-                }
+                },
             );
 
             return response.data;
-        }
-        catch (error: any) {
+        } catch (error: any) {
             ErrorHandler.handleError(error);
         }
     }
@@ -79,39 +75,33 @@ export class HTTPClient {
     public async patch(url: string, body?: any, token?: string) {
         try {
             const response = await axios.patch(
-                this.baseURL + url, 
-                body, 
+                this.baseURL + url,
+                body,
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`
+                        Authorization: `Bearer ${token}`,
                     },
-                }
+                },
             );
 
             return response.data;
-        }
-        catch (error: any) {
+        } catch (error: any) {
             ErrorHandler.handleError(error);
         }
     }
 
     public async delete(url: string, params?: any, token?: string) {
         try {
-            const response = await axios.delete(
-                this.baseURL + url, 
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    },
-                    data: params,
-                }
-            );
-    
+            const response = await axios.delete(this.baseURL + url, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+                data: params,
+            });
+
             return response.data;
-        }
-        catch (error: any) {
+        } catch (error: any) {
             ErrorHandler.handleError(error);
         }
     }
-    
 }
