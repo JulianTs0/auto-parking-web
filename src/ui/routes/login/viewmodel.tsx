@@ -10,6 +10,7 @@ import {
     type SaveSessionReq,
     Session,
     ClientErrors,
+    ErrorHandler,
 } from '../../../domain';
 import { CONSTANTS } from '../../../core/const/app-values';
 
@@ -76,17 +77,12 @@ export function ViewModel() {
             await sessionRepository.saveSession(session);
         };
 
-        try {
-            await toast.promise(loginPromise(), {
-                loading: CONSTANTS.LOADING_SESSION,
-                success: CONSTANTS.SUCCESS_SESSION,
-                error: (err) =>
-                    err
-                        ? (err as string)
-                        : ClientErrors.UNKNOWN_ERROR,
-            });
-            navigate('/');
-        } catch (error) { }
+        await toast.promise(loginPromise(), {
+            loading: CONSTANTS.LOADING_SESSION,
+            success: CONSTANTS.SUCCESS_SESSION,
+            error: (err) => ErrorHandler.resolveError(err),
+        });
+        navigate('/');
     };
 
     return {
