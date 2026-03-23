@@ -5,7 +5,7 @@ import {
     SessionRepository,
     UserRepository,
 } from '../../infrastructure';
-import { CLientErrors } from '../../domain';
+import { ClientErrors } from '../../domain';
 
 interface RepositoriesProviderProps {
     children: ReactNode;
@@ -42,7 +42,7 @@ export const RepositoriesProvider = ({
 export const useRepositories = () => {
     const context = useContext(RepositoriesContext);
 
-    if (!context) throw new Error(CLientErrors.CLIENT_ERROR);
+    if (!context) throw new Error(ClientErrors.CLIENT_ERROR);
 
     return context;
 };
