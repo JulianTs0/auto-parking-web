@@ -5,4 +5,6 @@ export const CONSTANTS = {
 
     LOADING_REGISTER: 'Registrando usuario...',
     SUCCESS_REGISTER: '¡Usuario registrado correctamente!',
+
+    LODING_BUTTON: 'Cargando...',
 };
