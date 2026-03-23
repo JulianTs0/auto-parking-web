@@ -1,5 +1,5 @@
 import { HTTPClient } from '../../core';
-import { AuthDataSourceI, CLientErrors } from '../../domain';
+import { AuthDataSourceI, ClientErrors } from '../../domain';
 import type {
     AcceptOwnerRequestReq,
     AuthReq,
@@ -39,7 +39,7 @@ export class AuthDataSource implements AuthDataSourceI {
         const token = response.token;
 
         if (!token) {
-            throw new Error(CLientErrors.LOGIN_ERROR_MESSAGE);
+            throw new Error(ClientErrors.LOGIN_ERROR_MESSAGE);
         }
 
         return response;

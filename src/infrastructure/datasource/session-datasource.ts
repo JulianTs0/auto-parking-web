@@ -1,4 +1,4 @@
-import { CLientErrors, SessionDataSourceI } from '../../domain';
+import { ClientErrors, SessionDataSourceI } from '../../domain';
 import {
     type GetSessionRes,
     type SaveSessionReq,
@@ -13,7 +13,7 @@ export class SessionDataSource implements SessionDataSourceI {
             const sessionString = JSON.stringify(dto.session);
             localStorage.setItem('session', sessionString);
         } catch (error) {
-            throw new Error(CLientErrors.SAVE_SESSION_ERROR);
+            throw new Error(ClientErrors.SAVE_SESSION_ERROR);
         }
     }
 
@@ -23,14 +23,14 @@ export class SessionDataSource implements SessionDataSourceI {
             const sessionParsed = JSON.parse(session || '');
 
             if (!sessionParsed || sessionParsed === '') {
-                throw new Error(CLientErrors.NO_SESSION_SAVED_ERROR);
+                throw new Error(ClientErrors.NO_SESSION_SAVED_ERROR);
             }
 
             return {
                 session: Session.fromObject(sessionParsed)!,
             };
         } catch (error) {
-            throw new Error(CLientErrors.GET_SESSION_ERROR);
+            throw new Error(ClientErrors.GET_SESSION_ERROR);
         }
     }
 
@@ -38,7 +38,7 @@ export class SessionDataSource implements SessionDataSourceI {
         try {
             localStorage.removeItem(this.key);
         } catch (error) {
-            throw new Error(CLientErrors.DELETE_SESSION_ERROR);
+            throw new Error(ClientErrors.DELETE_SESSION_ERROR);
         }
     }
 }
