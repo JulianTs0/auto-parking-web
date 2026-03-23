@@ -1,9 +1,8 @@
-import axios from "axios";
-import type { ErrorResponse } from "./error-response";
-import { ApiErrors, CLientErrors } from "./errors"
+import axios from 'axios';
+import type { ErrorResponse } from './error-response';
+import { ApiErrors, ClientErrors } from './errors';
 
 export class ErrorHandler {
-
     public static handleError(error: unknown): never {
         let errorResponse: ErrorResponse;
 
@@ -11,15 +10,16 @@ export class ErrorHandler {
             if (error.response && error.response.data) {
                 errorResponse = error.response.data as ErrorResponse;
             } else {
-                throw new Error(CLientErrors.NETWORK_ERROR);
+                throw new Error(ClientErrors.NETWORK_ERROR);
             }
         } else {
-            throw new Error(CLientErrors.CLIENT_ERROR);
+            throw new Error(ClientErrors.CLIENT_ERROR);
         }
 
-        const translatedMessage = ApiErrors[errorResponse.key] || CLientErrors.UNKNOWN_ERROR;
+        const translatedMessage =
+            ApiErrors[errorResponse.key] ||
+            ClientErrors.UNKNOWN_ERROR;
 
         throw new Error(translatedMessage);
     }
-
 }
