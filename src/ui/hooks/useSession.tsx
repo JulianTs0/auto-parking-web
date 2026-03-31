@@ -9,7 +9,7 @@ import type {
     AuthRes,
 } from '../../domain';
 
-const PUBLIC_ROUTES = ['/login', '/register', '/reset-password'];
+const PUBLIC_ROUTES = ['/login', '/register', '/password-request'];
 
 export default function useSession() {
     const navigate = useNavigate();
