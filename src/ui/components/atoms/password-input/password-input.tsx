@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import style from './style.module.css';
+import See from '../../../assets/icons/see.svg';
+import Unsee from '../../../assets/icons/unsee.svg';
 
 type Props = {
     id: string;
@@ -48,13 +50,13 @@ export default function PasswordInput({
                 >
                     {showPassword ? (
                         <img
-                            src={''}
+                            src={See}
                             alt="Ocultar"
                             className={style.icon}
                         />
                     ) : (
                         <img
-                            src={''}
+                            src={Unsee}
                             alt="Mostrar"
                             className={style.icon}
                         />
