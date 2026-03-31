@@ -78,11 +78,13 @@ export function ViewModel() {
         };
 
         await toast.promise(loginPromise(), {
-            loading: CONSTANTS.LOADING_SESSION,
-            success: CONSTANTS.SUCCESS_SESSION,
+            loading: CONSTANTS.LOADING_REGISTER,
+            success: (data) => {
+                navigate('/login');
+                return CONSTANTS.SUCCESS_REGISTER;
+            },
             error: (err) => ErrorHandler.resolveError(err),
         });
-        navigate('/');
     };
 
     return {

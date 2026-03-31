@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRepositories } from '../../../core';
 import {
     ClientErrors,
+    ErrorHandler,
     Regex,
     type RegisterReq,
 } from '../../../domain';
@@ -84,15 +85,14 @@ export function ViewModel() {
             }
         };
 
-        try {
-            await toast.promise(registerPromise(), {
-                loading: CONSTANTS.LOADING_REGISTER,
-                success: CONSTANTS.SUCCESS_REGISTER,
-                error: (err) =>
-                    err ? (err as string) : ClientErrors.UNAUTHORIZED,
-            });
-            navigate('/login');
-        } catch (error) { }
+        await toast.promise(registerPromise(), {
+            loading: CONSTANTS.LOADING_REGISTER,
+            success: (data) => {
+                navigate('/login');
+                return CONSTANTS.SUCCESS_REGISTER;
+            },
+            error: (err) => ErrorHandler.resolveError(err),
+        });
     };
 
     return {
