@@ -87,7 +87,7 @@ export function ViewModel() {
 
         await toast.promise(registerPromise(), {
             loading: CONSTANTS.LOADING_REGISTER,
-            success: (data) => {
+            success: () => {
                 navigate('/login');
                 return CONSTANTS.SUCCESS_REGISTER;
             },

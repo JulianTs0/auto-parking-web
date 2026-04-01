@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import {
     ClientErrors,
+    ErrorHandler,
     Regex,
     type RecoverPasswordReq,
 } from '../../../domain';
 import { useNavigate } from 'react-router-dom';
 import useSession from '../../hooks/useSession';
+import { CONSTANTS } from '../../../core/const/app-values';
 
 export function ViewModel() {
     const navigate = useNavigate();
@@ -19,6 +21,8 @@ export function ViewModel() {
 
     const [error, setError] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const [cooldown, setCooldown] = useState(0);
 
     useEffect(() => {
         if (error != null) {
@@ -33,39 +37,55 @@ export function ViewModel() {
         }
     }, [logged]);
 
+    useEffect(() => {
+        if (cooldown > 0) {
+            const timer = setInterval(() => {
+                setCooldown((prev) => prev - 1);
+            }, 1000);
+            return () => clearInterval(timer);
+        }
+    }, [cooldown]);
+
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        toast.dismiss();
+
+        if (isSubmitting || cooldown > 0) return;
+
+        const form = Object.fromEntries(
+            new FormData(e.currentTarget),
+        );
+
+        const payload = {
+            email: form.email?.toString().trim().toLowerCase() || '',
+        };
+
+        if (!Regex.EMAIL.test(payload.email)) {
+            setIsSubmitting(false);
+            return setError(ClientErrors.INVALID_EMAIL);
+        }
+
+        setIsSubmitting(true);
+
         try {
-            e.preventDefault();
-
-            if (isSubmitting) return;
-
-            setIsSubmitting(true);
-
-            const form = Object.fromEntries(
-                new FormData(e.currentTarget),
-            );
-
-            const payload = {
-                email:
-                    form.email?.toString().trim().toLowerCase() || '',
-            };
-
-            if (!Regex.EMAIL.test(payload.email)) {
-                setIsSubmitting(false);
-                return setError(ClientErrors.INVALID_EMAIL);
-            }
-
             await authRepository.recoverPassword({
                 email: payload.email,
             } as RecoverPasswordReq);
-
-            toast.success('Correo de recuperacion enviado');
+            toast.success(CONSTANTS.EMAIL_SEND);
+            navigate('/login');
+        } catch (error: any) {
+            if (error.response?.status === 429) {
+                const retryAfter = parseInt(
+                    error.response.headers['retry-after'],
+                    10,
+                );
+                setCooldown(retryAfter || 60);
+                toast.error(CONSTANTS.WAITH_RESEND);
+            } else {
+                toast.error(ErrorHandler.resolveError(error));
+            }
+        } finally {
             setIsSubmitting(false);
-        } catch (error) {
-            setIsSubmitting(false);
-            toast.error(
-                error ? (error as string) : ClientErrors.UNAUTHORIZED,
-            );
         }
     };
 
@@ -73,5 +93,6 @@ export function ViewModel() {
         onSubmit,
         isSubmitting,
         icon,
+        cooldown,
     };
 }
