@@ -7,4 +7,7 @@ export const CONSTANTS = {
     SUCCESS_REGISTER: '¡Usuario registrado correctamente!',
 
     LODING_BUTTON: 'Cargando...',
+
+    EMAIL_SEND: 'Correo de recuperación enviado',
+    WAITH_RESEND: 'Debes esperar antes de enviar otro correo',
 };
