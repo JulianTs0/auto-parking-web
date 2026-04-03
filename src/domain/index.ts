@@ -47,7 +47,6 @@ export * from './dto/auth/request/register-req';
 export * from './dto/auth/request/request-owner-upgrade-req';
 export * from './dto/auth/request/resend-email-req';
 export * from './dto/auth/request/upgrade-to-owner-req';
-export * from './dto/auth/request/verify-email-req';
 
 export * from './dto/auth/response/auth-res';
 export * from './dto/auth/response/login-res';

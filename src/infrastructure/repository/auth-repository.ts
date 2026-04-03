@@ -14,7 +14,6 @@ import type {
     RequestOwnerUpgradeReq,
     ResendEmailReq,
     UpgradeToOwnerReq,
-    VerifyEmailReq,
 } from '../../domain';
 import { AuthDataSource } from '../datasource/auth-datasource';
 
@@ -35,10 +34,6 @@ export class AuthRepository implements AuthRepositoryI {
 
     async register(dto: RegisterReq): Promise<void> {
         return await this.dataSource.register(dto);
-    }
-
-    async verifyEmail(dto: VerifyEmailReq): Promise<void> {
-        return await this.dataSource.verifyEmail(dto);
     }
 
     async changePassword(dto: EditPasswordReq): Promise<void> {
