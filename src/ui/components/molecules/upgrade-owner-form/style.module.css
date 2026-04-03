@@ -25,26 +25,6 @@
     justify-content: flex-start;
 }
 
-.linkContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.linkText {
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.registerText>p {
-    color: var(--on-background);
-}
-
 a {
     color: var(--on-background);
     font-weight: 700;
@@ -68,4 +48,17 @@ a::after {
 
 a:hover::after {
     transform: scaleX(1);
+}
+
+.loginText {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.loginText>p {
+    color: var(--on-background);
 }
