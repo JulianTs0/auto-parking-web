@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 8px;
+    gap: 24px;
+
+    background-color: var(--on-primary);
+    color: var(--primary);
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+
+    overflow: hidden;
+}

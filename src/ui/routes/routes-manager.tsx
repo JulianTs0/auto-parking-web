@@ -3,6 +3,8 @@ import LoginRoute from './login/login';
 import RegisterRoute from './register/register';
 import RecoverPasswordRoute from './recover-password/recover-password';
 import UpgradeOwnerRoute from './upgrade-owner/upgrade-owner';
+import HomeRoute from './home/home';
+import ProfileRoute from './profile/profile';
 
 export default function RoutesManager() {
     return (
@@ -17,6 +19,11 @@ export default function RoutesManager() {
                 <Route
                     path="/password-request"
                     element={<RecoverPasswordRoute />}
+                />
+                <Route path="/home" element={<HomeRoute />} />
+                <Route
+                    path="/profile/:id"
+                    element={<ProfileRoute />}
                 />
             </Routes>
         </BrowserRouter>

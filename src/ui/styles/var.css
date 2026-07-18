@@ -1,28 +1,54 @@
 :root {
-    --primary: #002D8B;
+    --primary: #002d8b;
     --on-primary: #ffffff;
 
-    --secondary: #485D4E;
+    --secondary: #3e5c44;
     --on-secondary: #ffffff;
 
-    --tertiary: #4A4D52;
+    --tertiary: #4a4d52;
     --on-tertiary: #ffffff;
 
-    --disabled: #8F96A3;
+    --disabled: #8f96a3;
     --on-disabled: #ffffff;
 
-    --error: #C93A3A;
+    --error: #c93a3a;
     --on-error: #ffffff;
 
-    --background: #F4F5F8;
-    --on-background: #002D8B;
+    --background: #f4f5f8;
+    --on-background: #002d8b;
 
     --surface: #ffffff;
-    --on-surface: #002D8B;
+    --on-surface: #002d8b;
 
     --max-width: 1920px;
     --min-width: 360px;
 
     --border: rgba(0, 45, 139, 0.25);
-    --detail: #002D8B;
+    --detail: #002d8b;
+
+    --grid-major-step: 120px;
+    --grid-minor-step: 20px;
+
+    --grid-major-color: rgba(255, 255, 255, 0.3);
+    --grid-minor-color: rgba(255, 255, 255, 0.1);
+
+    --blueprint-grid-image:
+        linear-gradient(to right,
+            var(--grid-major-color) 2px,
+            transparent 2px),
+        linear-gradient(to bottom,
+            var(--grid-major-color) 2px,
+            transparent 2px),
+        linear-gradient(to right,
+            var(--grid-minor-color) 1px,
+            transparent 1px),
+        linear-gradient(to bottom,
+            var(--grid-minor-color) 1px,
+            transparent 1px);
+
+    --blueprint-grid-size:
+        var(--grid-major-step) var(--grid-major-step),
+        var(--grid-major-step) var(--grid-major-step),
+        var(--grid-minor-step) var(--grid-minor-step),
+        var(--grid-minor-step) var(--grid-minor-step);
 }

@@ -1,0 +1,69 @@
+.container {
+    width: 100%;
+    height: 70px;
+    width: 100%;
+    padding: 0 20px;
+
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+
+    border-radius: 0 0 24px 24px;
+    border: 2px solid var(--on-secondary);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+    background-image: var(--blueprint-grid-image);
+    background-size: var(--blueprint-grid-size);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: var(--blueprint-grid-image);
+    background-size: var(--blueprint-grid-size);
+
+    overflow: hidden;
+}
+
+.delimiter {
+    max-width: var(--max-width);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+}
+
+.content {
+    width: 100%;
+    max-width: var(--max-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--border-padding);
+}
+
+.isologo {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.isologo>img {
+    height: 30px;
+}
+
+.burgerImg {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.routesContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

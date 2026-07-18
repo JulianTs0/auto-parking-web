@@ -59,11 +59,11 @@
     font-weight: 600;
 }
 
-.loginText>p {
+.loginText > p {
     color: var(--on-background);
 }
 
-a {
+.container a {
     color: var(--on-background);
     font-weight: 700;
     text-decoration: none;
@@ -71,7 +71,7 @@ a {
     border-bottom: 2px dashed var(--on-background);
 }
 
-a::after {
+.container a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -84,7 +84,7 @@ a::after {
     transition: transform 0.3s ease-in-out;
 }
 
-a:hover::after {
+.container a:hover::after {
     transform: scaleX(1);
 }
 

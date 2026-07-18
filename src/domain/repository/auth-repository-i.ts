@@ -31,6 +31,6 @@ export abstract class AuthRepositoryI {
     ): Promise<void>;
     abstract requestOwnerUpgrade(
         dto: RequestOwnerUpgradeReq,
-    ): Promise<void>;
+    ): Promise<void>; //
     abstract upgrade(dto: UpgradeToOwnerReq): Promise<void>;
 }

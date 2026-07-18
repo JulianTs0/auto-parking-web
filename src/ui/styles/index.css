@@ -22,28 +22,16 @@ body {
     width: 100vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
 
     background-color: var(--primary);
     color: var(--on-primary);
 
-    background-size:
-        120px 120px,
-        120px 120px,
-        20px 20px,
-        20px 20px;
-    background-image:
-        linear-gradient(to right,
-            rgba(255, 255, 255, 0.3) 2px,
-            transparent 2px),
-        linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.3) 2px,
-            transparent 2px),
-        linear-gradient(to right,
-            rgba(255, 255, 255, 0.1) 1px,
-            transparent 1px),
-        linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.1) 1px,
-            transparent 1px);
+    background-image: var(--blueprint-grid-image);
+    background-size: var(--blueprint-grid-size);
 }
 
 #root {
@@ -73,23 +61,16 @@ body {
 
 .delimiter {
     height: 100%;
-    padding: 0px 14px;
+    width: 100%;
+
+    max-width: 1024px;
+    margin: 24px 0px;
+
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
-}
-
-a {
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
-}
-
-a:hover {
-    background-color: var(--on-primary);
-    color: var(--primary);
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 @media (max-width: 768px) {

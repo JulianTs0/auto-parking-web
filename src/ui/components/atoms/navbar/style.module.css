@@ -1,0 +1,132 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+    background-image: var(--blueprint-grid-image);
+    background-size: var(--blueprint-grid-size);
+
+    border-radius: 0 24px 24px 0;
+    border-right: 3px solid var(--on-secondary);
+
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 10px 0 50px rgba(0, 0, 0, 0.4);
+}
+
+.navbar.active {
+    transform: translateX(0);
+}
+
+.sectionTitle {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 0 16px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+
+    background-color: var(--tertiary);
+    color: var(--on-tertiary);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+}
+
+.item:hover a {
+    background-color: var(--tertiary);
+    filter: brightness(1.1);
+    border: 1px solid var(--on-secondary);
+    transform: translateX(5px);
+}
+
+.activeItem a {
+    background-color: var(--tertiary);
+    font-weight: 700;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+    color: var(--disabled);
+    border: 2px dashed var(--disabled);
+}
+
+.item a img {
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+    transition: all 0.2s ease;
+}
+
+.activeItem a img {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(13%) saturate(1450%) hue-rotate(85deg) brightness(92%) contrast(88%);
+    opacity: 1;
+}
+
+.closeImg {
+    filter: brightness(0) invert(1);
+}
+
+.logoutContainer {
+    margin-top: auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+
+    background-color: var(--tertiary);
+    color: var(--on-tertiary, #ffffff);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    transition: all 0.2s ease;
+}
+
+.logoutContainer:hover {
+    filter: brightness(1.1);
+    border: 1px solid var(--on-secondary);
+}
+
+.logoutText {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.backdrop {
+    background-color: rgba(0, 45, 139, 0.6);
+    backdrop-filter: blur(4px);
+}
